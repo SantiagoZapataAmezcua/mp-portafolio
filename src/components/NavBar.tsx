@@ -1,4 +1,5 @@
-// src/components/NavBar.tsx
+"use client";
+
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -8,16 +9,25 @@ export default function NavBar() {
   return (
     <header className="bg-white shadow-md fixed w-full z-20">
       <div className="container mx-auto flex items-center justify-between p-4">
-        <Link href="/">
-          <a className="text-xl font-bold">MiEmpresa</a>
+        {/* Logo */}
+        <Link href="/" className="text-xl font-bold">
+          MiEmpresa
         </Link>
 
         {/* Menú desktop */}
         <nav className="hidden md:flex space-x-6">
-          <Link href="/"><a>Inicio</a></Link>
-          <Link href="/about"><a>Sobre mí</a></Link>
-          <Link href="/projects"><a>Proyectos</a></Link>
-          <Link href="/contact"><a>Contacto</a></Link>
+          <Link href="/" className="hover:underline">
+            Inicio
+          </Link>
+          <Link href="/about" className="hover:underline">
+            Sobre mí
+          </Link>
+          <Link href="/projects" className="hover:underline">
+            Proyectos
+          </Link>
+          <Link href="/contact" className="hover:underline">
+            Contacto
+          </Link>
         </nav>
 
         {/* Botón hamburguesa móvil */}
@@ -26,12 +36,7 @@ export default function NavBar() {
           className="md:hidden p-2 focus:outline-none"
           aria-label="Toggle menu"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
               <path
                 strokeLinecap="round"
@@ -40,12 +45,7 @@ export default function NavBar() {
                 d="M6 18L18 6M6 6l12 12"
               />
             ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 8h16M4 16h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8h16M4 16h16" />
             )}
           </svg>
         </button>
@@ -55,10 +55,18 @@ export default function NavBar() {
       {open && (
         <nav className="md:hidden bg-white shadow-lg">
           <div className="flex flex-col space-y-2 p-4">
-            <Link href="/"><a>Inicio</a></Link>
-            <Link href="/about"><a>Sobre mí</a></Link>
-            <Link href="/projects"><a>Proyectos</a></Link>
-            <Link href="/contact"><a>Contacto</a></Link>
+            <Link href="/" className="hover:underline">
+              Inicio
+            </Link>
+            <Link href="/about" className="hover:underline">
+              Sobre mí
+            </Link>
+            <Link href="/projects" className="hover:underline">
+              Proyectos
+            </Link>
+            <Link href="/contact" className="hover:underline">
+              Contacto
+            </Link>
           </div>
         </nav>
       )}

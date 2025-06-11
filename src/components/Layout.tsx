@@ -1,19 +1,21 @@
-// src/app/layout.tsx
-import "@/app/globals.css";
-import Layout from "@/components/Layout";
-import type { Metadata } from "next";
+// src/components/Layout.tsx
+import React from "react";
+import NavBar from "./NavBar";     // client component
+import Footer from "./Footer";     // server component
 
-export const metadata: Metadata = {
-  title: "Mi Portafolio",
-  description: "Portafolio de MiEmpresa",
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
-      <body>
-        <Layout>{children}</Layout>
-      </body>
-    </html>
+    <div className="flex flex-col min-h-screen">
+      {/* Header fijo */}
+      <NavBar />
+
+      {/* Main central, desplazado abajo para no tapar el header */}
+      <main className="flex-grow mt-16">
+        {children}
+      </main>
+
+      {/* Pie de página */}
+      <Footer />
+    </div>
   );
 }
