@@ -1,3 +1,4 @@
+// src/components/NavBar.tsx
 "use client";
 
 import Link from "next/link";
@@ -8,14 +9,14 @@ export default function NavBar() {
 
   return (
     <header className="bg-white shadow-md fixed w-full z-20">
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex items-center p-4">
         {/* Logo */}
         <Link href="/" className="text-xl font-bold">
           MiEmpresa
         </Link>
 
-        {/* Menú desktop */}
-        <nav className="hidden md:flex space-x-6">
+        {/* Menú desktop centrado */}
+        <nav className="hidden md:flex flex-1 justify-center space-x-6">
           <Link href="/" className="hover:underline">
             Inicio
           </Link>
@@ -53,21 +54,19 @@ export default function NavBar() {
 
       {/* Menú móvil */}
       {open && (
-        <nav className="md:hidden bg-white shadow-lg">
-          <div className="flex flex-col space-y-2 p-4">
-            <Link href="/" className="hover:underline">
-              Inicio
-            </Link>
-            <Link href="/about" className="hover:underline">
-              Sobre mí
-            </Link>
-            <Link href="/projects" className="hover:underline">
-              Proyectos
-            </Link>
-            <Link href="/contact" className="hover:underline">
-              Contacto
-            </Link>
-          </div>
+        <nav className="md:hidden bg-white shadow-lg p-4 space-y-2">
+          <Link href="/" className="block hover:underline">
+            Inicio
+          </Link>
+          <Link href="/about" className="block hover:underline">
+            Sobre mí
+          </Link>
+          <Link href="/projects" className="block hover:underline">
+            Proyectos
+          </Link>
+          <Link href="/contact" className="block hover:underline">
+            Contacto
+          </Link>
         </nav>
       )}
     </header>
